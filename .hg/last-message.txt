@@ -1,0 +1,3 @@
+Using primary key instead of bean overriding.
+
+
