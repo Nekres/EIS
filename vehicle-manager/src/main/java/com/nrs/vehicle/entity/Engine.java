@@ -33,13 +33,13 @@ public class Engine {
     @Column
     private TransmissionType transmission;
     
-    enum CoolingSystem{
+    public enum CoolingSystem{
         WATER,AIR;
     }
-    enum TransmissionType{
+    public enum TransmissionType{
         MECHANICAL, ELECTRICAL,HYDRO_VOLUME, COMBINED;
     }
-    enum EngineType{
+    public enum EngineType{
         GASOLINE, DIESEL, GAS,ROTARY_PISTON;
     }
 

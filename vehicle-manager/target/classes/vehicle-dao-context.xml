@@ -11,7 +11,7 @@
         <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
  </bean>
     <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-    <property name="url" value="jdbc:h2:tcp://localhost/mem:auto_moto" />
+    <property name="url" value="jdbc:h2:~/auto_moto" />
     <property name="username" value="root" />
     <property name="password" value="finished" />
 </bean>
