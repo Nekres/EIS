@@ -17,7 +17,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Main {
     public static void main(String[] args) {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext(new String[]{"classpath*:*-context.xml"});
+        ApplicationContext ctx = new ClassPathXmlApplicationContext(new String[]{"classpath:vehicle-dao-context.xml"});
         VehicleDao dao = (VehicleDao)ctx.getBean("vehicleDao");
         Vehicle v = new Motorcycle();
         v.setCost(200);
@@ -30,12 +30,11 @@ public class Main {
         m.setName("IDK");
         m.setSiteUrl("http://not-exist.com");
         v.setManufacturer(m);
+        
         Engine e = new Engine();
-        e.setCoolingSystem(Engine.CoolingSystem.WATER);
-        e.setEngineType(Engine.EngineType.GASOLINE);
-        e.setTransmission(Engine.TransmissionType.MECHANICAL);
+        e.setTransmissionType("MECHANICAL");
         v.setEngine(e);
-        dao.openSessionWithTransaction();
+        dao.beginTransaction();
         Store s = new Store();
         s.setAddress("some address");
         s.setName("some name");

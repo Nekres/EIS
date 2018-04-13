@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-    xsi:schemaLocation="
+       xsi:schemaLocation="
       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd"
 >
-   <!-- Definition for profile bean -->
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="packagesToScan" value="com.nrs.vehicle.entity" />
-        <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
- </bean>
-    <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-    <property name="url" value="jdbc:h2:~/auto_moto" />
-    <property name="username" value="root" />
-    <property name="password" value="finished" />
-</bean>
+    <!-- Definition for profile bean -->
+    <bean id="transactionManager"
+          class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManager"/>
+    </bean>
 
-<bean name="vehicleDao" class="com.nrs.vehicle.dao.VehicleDao">
-    <property name="sessionFactory" ref="sessionFactory" />
-</bean>
+    <bean id="persistenceExceptionTranslationPostProcessor" class=
+            "org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+    <bean id="entityManager"
+          class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="oracle"/>
+    </bean>
+
+    <bean name="vehicleDao" class="com.nrs.vehicle.dao.VehicleDao">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
 </beans>

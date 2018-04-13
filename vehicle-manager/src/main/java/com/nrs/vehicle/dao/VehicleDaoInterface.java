@@ -20,13 +20,9 @@ public interface VehicleDaoInterface<E,K> {
     public E findById(K id);
     public void delete(E entity);
     
-    public Session openSession();
-    public Session openSessionWithTransaction();
-    public void closeSession();
-    public void closeSessionWithTransaction();
+    public void beginTransaction();
+    public void commit();
     
-    public Session getCurrentSession();
-    public Transaction getCurrentTransaction();
 
     
 }

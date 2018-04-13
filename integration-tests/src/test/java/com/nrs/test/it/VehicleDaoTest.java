@@ -29,7 +29,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @author root
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath*:vehicle-dao-context.xml"})
+@ContextConfiguration(locations = {"classpath*:test-vehicle-dao-context.xml"})
 public class VehicleDaoTest {
     @Autowired
     VehicleDao dao;
@@ -56,9 +56,7 @@ public class VehicleDaoTest {
         v.setManufacturer(m);
         
         Engine e = new Engine();
-        e.setCoolingSystem(Engine.CoolingSystem.WATER);
-        e.setEngineType(Engine.EngineType.GASOLINE);
-        e.setTransmission(Engine.TransmissionType.MECHANICAL);
+        e.setTransmissionType("MECHANICAL");
         v.setEngine(e);
         
         Store s = new Store();
@@ -71,13 +69,13 @@ public class VehicleDaoTest {
         set.add(svi);
         v.setStores(set);
         
-        dao.openSessionWithTransaction();
+        dao.beginTransaction();
         dao.persist(v);
-        dao.closeSessionWithTransaction();
+        dao.commit();
         
-        dao.openSessionWithTransaction();
+        dao.beginTransaction();
         Assert.assertNotEquals(dao.findById(1),null);
-        dao.closeSessionWithTransaction();
+        dao.commit();
     }
     @After
     public void destroy(){

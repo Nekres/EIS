@@ -23,49 +23,36 @@ public class Engine {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false, nullable = false)
     private int id;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "engine_type")
-    private EngineType engineType;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "cooling_system")
-    private CoolingSystem coolingSystem;
-    @Enumerated(EnumType.STRING)
-    @Column
-    private TransmissionType transmission;
+    @Column(name= "model")
+    private String model;
+    @Column(name = "transmission_type")
+    private String transmissionType;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public String getTransmissionType() {
+        return transmissionType;
+    }
+
+    public void setTransmissionType(String transmissionType) {
+        this.transmissionType = transmissionType;
+    }
     
-    public enum CoolingSystem{
-        WATER,AIR;
-    }
-    public enum TransmissionType{
-        MECHANICAL, ELECTRICAL,HYDRO_VOLUME, COMBINED;
-    }
-    public enum EngineType{
-        GASOLINE, DIESEL, GAS,ROTARY_PISTON;
-    }
-
-    public EngineType getEngineType() {
-        return engineType;
-    }
-
-    public void setEngineType(EngineType engineType) {
-        this.engineType = engineType;
-    }
-
-    public CoolingSystem getCoolingSystem() {
-        return coolingSystem;
-    }
-
-    public void setCoolingSystem(CoolingSystem coolingSystem) {
-        this.coolingSystem = coolingSystem;
-    }
-
-    public TransmissionType getTransmission() {
-        return transmission;
-    }
-
-    public void setTransmission(TransmissionType transmission) {
-        this.transmission = transmission;
-    }
+    
     
     
     

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+<changeSet id="1" author="stud-mshykoriak"> 
+<createTable tableName="Engine">
+<column autoIncrement="true" name="id" type="BIGINT"> 
+        <constraints nullable="false" primaryKey="true"/> 
+      </column> 
+<column name="transmission" type="varchar(60)">
+    <constraints nullable="false"/>
+</column>
+<column name="model" type="varchar(60)">
+    <constraints nullable="false"/>
+</column>
+</createTable>
+</changeSet>
+<changeSet id="2" author="stud-mshykoriak">
+    <createTable tableName="Manufacturer">
+    <column autoIncrement="true" name="id" type="BIGINT"> 
+        <constraints nullable="false" primaryKey="true"/> 
+    </column>
+    <column name="name" type="varchar(50)">
+        <constraints nullable="false"/>
+    </column>
+    <column name="country" type="varchar(50)">
+        <constraints nullable="false"/>
+    </column>
+    <column name="site_url" type="varchar(250)">
+    </column>
+    </createTable>
+</changeSet>
+<changeSet id="3" author="stud-mshykoriak">
+    <createTable tableName="Vehicle">
+         <column autoIncrement="true" name="id" type="BIGINT"> 
+        <constraints nullable="false" primaryKey="true"/> 
+    </column>
+    <column name="weight" type="double"></column>
+    <column name="height" type="double"></column>
+    <column name="length" type="double"></column>
+    <column name="max_speed" type="double"></column>
+    <column name="cost" type="double"></column>
+    <column name="produce_date" type="date"></column>
+    <column name="manufacturer" type="int">
+        <constraints nullable="false"
+                             foreignKeyName="fk_manufacturer"
+                             references="Manufacturer(id)"/>
+    </column>
+    </createTable>
+</changeSet>
+<!--<changeSet id="4" author="stud-mshykoriak">
+    <createTable tableName="
+</changeSet>-->
+</databaseChangeLog> 

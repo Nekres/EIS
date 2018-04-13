@@ -25,7 +25,7 @@ public class Manufacturer {
     private String name;
     @Column
     private String country;
-    @Column
+    @Column(name = "site_url")
     private String siteUrl;
 
     public String getName() {
@@ -50,6 +50,14 @@ public class Manufacturer {
 
     public void setSiteUrl(String siteUrl) {
         this.siteUrl = siteUrl;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     
