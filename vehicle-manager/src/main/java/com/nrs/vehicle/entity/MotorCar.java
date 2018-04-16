@@ -15,10 +15,57 @@ import javax.persistence.Entity;
  * @author nrs
  */
 @Entity
-public abstract class MotorCar extends Vehicle{
+public class MotorCar extends Vehicle{
     
-    @Column(nullable = false)
+    @Column(nullable = false, name = "is_public")
     private boolean isPublic;
     @Column(name = "auto_bodywork_type", nullable = false)
     private boolean automotiveBodyworkType;
+
+    public boolean isIsPublic() {
+        return isPublic;
+    }
+
+    public void setIsPublic(boolean isPublic) {
+        this.isPublic = isPublic;
+    }
+
+    public boolean isAutomotiveBodyworkType() {
+        return automotiveBodyworkType;
+    }
+
+    public void setAutomotiveBodyworkType(boolean automotiveBodyworkType) {
+        this.automotiveBodyworkType = automotiveBodyworkType;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = super.hashCode();
+        hash = 79 * hash + (this.isPublic ? 1 : 0);
+        hash = 79 * hash + (this.automotiveBodyworkType ? 1 : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final MotorCar other = (MotorCar) obj;
+        if (this.isPublic != other.isPublic) {
+            return false;
+        }
+        if (this.automotiveBodyworkType != other.automotiveBodyworkType) {
+            return false;
+        }
+        return super.equals(obj);
+    }
+    
+    
 }

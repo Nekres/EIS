@@ -16,9 +16,9 @@ import javax.persistence.Entity;
 @Entity
 public class Motorcycle extends Vehicle{
     
-    @Column(nullable = false)
+    @Column(nullable = false,name = "is_one_man_type")
     private boolean isOneManType;
-    @Column(nullable = false)
+    @Column(nullable = false,name = "has_side_car")
     private boolean hasSidecar;
 
     public boolean isIsOneManType() {
@@ -36,6 +36,40 @@ public class Motorcycle extends Vehicle{
     public void setHasSidecar(boolean hasSidecar) {
         this.hasSidecar = hasSidecar;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = super.hashCode();
+        hash = 79 * hash + (this.isOneManType ? 1 : 0);
+        hash = 79 * hash + (this.hasSidecar ? 1 : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Motorcycle other = (Motorcycle) obj;
+        if (this.isOneManType != other.isOneManType) {
+            return false;
+        }
+        if (this.hasSidecar != other.hasSidecar) {
+            return false;
+        }
+        
+        return super.equals(obj);
+    }
+    
+    
+   
+    
     
     
 }

@@ -12,6 +12,7 @@ import com.nrs.vehicle.entity.Motorcycle;
 import com.nrs.vehicle.entity.Store;
 import com.nrs.vehicle.entity.StoreVehicleInterim;
 import com.nrs.vehicle.entity.Vehicle;
+import com.nrs.vehicle.entity.MotorCar;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
@@ -35,13 +36,18 @@ public class VehicleDaoTest {
     VehicleDao dao;
     
     Process database;
+    Engine engine;
+    Store store;
+    Manufacturer manufacturer;
+    Vehicle vehicle;
+    Motorcycle motorcycle;
+    MotorCar motorcar;
+    
     @Before
     public void setUp() throws IOException{
         File db = new File("src/test/resources/h2-1.4.197.jar");
         database = Runtime.getRuntime().exec(new String[]{"java","-jar",db.getAbsolutePath()});
-    }
-    @Test
-    public void testInsert(){
+        
         Vehicle v = new Motorcycle();
         v.setCost(200);
         v.setHeight(500);
@@ -49,22 +55,22 @@ public class VehicleDaoTest {
         v.setMaxSpeed(1200);
         v.setWeight(400);
         
-        Manufacturer m = new Manufacturer();
-        m.setCountry("China");
-        m.setName("IDK");
-        m.setSiteUrl("http://not-exist.com");
-        v.setManufacturer(m);
+        manufacturer = new Manufacturer();
+        manufacturer.setCountry("China");
+        manufacturer.setName("IDK");
+        manufacturer.setSiteUrl("http://not-exist.com");
+        v.setManufacturer(manufacturer);
         
-        Engine e = new Engine();
-        e.setTransmissionType("MECHANICAL");
-        v.setEngine(e);
+        engine = new Engine();
+        engine.setTransmissionType("MECHANICAL");
+        v.setEngine(engine);
         
-        Store s = new Store();
-        s.setAddress("some address");
-        s.setName("some name");
+        store = new Store();
+        store.setAddress("some address");
+        store.setName("some name");
         HashSet<StoreVehicleInterim> set = new HashSet<>();
         StoreVehicleInterim svi = new StoreVehicleInterim();
-        svi.setStore(s);
+        svi.setStore(store);
         svi.setVehicle(v);
         set.add(svi);
         v.setStores(set);
@@ -72,9 +78,14 @@ public class VehicleDaoTest {
         dao.beginTransaction();
         dao.persist(v);
         dao.commit();
-        
+    }
+    
+    @Test
+    public void testInsert(){
         dao.beginTransaction();
         Assert.assertNotEquals(dao.findById(1),null);
+        Assert.assertNotEquals(dao.findById(1).getManufacturer().equals(manufacturer), true);
+        Assert.assertNotEquals(dao.findById(1).getEngine().equals(engine), true);
         dao.commit();
     }
     @After

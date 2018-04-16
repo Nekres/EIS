@@ -22,6 +22,7 @@ public interface VehicleDaoInterface<E,K> {
     
     public void beginTransaction();
     public void commit();
+    public void rollback();
     
 
     

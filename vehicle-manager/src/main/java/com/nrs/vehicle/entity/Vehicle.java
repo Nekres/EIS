@@ -32,32 +32,32 @@ public abstract class Vehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "vehicle_id", updatable = false, nullable = false)
-    private int id;
+    protected int id;
     @Column(nullable = false)
-    private double weight;
+    protected double weight;
     @Column(nullable = false)
-    private double height;
+    protected double height;
     
     @Column(nullable = false)
-    private double length;
+    protected double length;
     
     @Column(name = "max_speed",nullable = false)
-    private double maxSpeed;
+    protected double maxSpeed;
     
     @Column(nullable = false)
-    private double cost;
+    protected double cost;
     
     @Column(name = "produce_date")
     @Temporal(TemporalType.DATE)
-    private Date produceDate;
+    protected Date produceDate;
     
     @ManyToOne(cascade = CascadeType.ALL)
-    private Manufacturer manufacturer;
+    protected Manufacturer manufacturer;
     @OneToMany(mappedBy = "store")
-    private Set<StoreVehicleInterim> stores;
+    protected Set<StoreVehicleInterim> stores;
     
     @OneToOne(cascade = CascadeType.ALL)
-    private Engine engine;
+    protected Engine engine;
 
     public Engine getEngine() {
         return engine;

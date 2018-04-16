@@ -5,6 +5,7 @@
  */
 package com.nrs.vehicle.entity;
 
+import java.util.Objects;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -55,6 +56,31 @@ public class Store {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 59 * hash + this.id;
+        hash = 59 * hash + Objects.hashCode(this.name);
+        hash = 59 * hash + Objects.hashCode(this.address);
+        hash = 59 * hash + Objects.hashCode(this.vehicles);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Store other = (Store) obj;
+        return true;
     }
     
     

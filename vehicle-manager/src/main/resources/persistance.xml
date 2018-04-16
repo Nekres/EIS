@@ -1,0 +1,21 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+  version="2.1">
+
+  <persistence-unit name="local_persistence">
+    <description> Spring Hibernate JPA Configuration Example</description>
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+    <properties>
+      <property name="javax.persistence.jdbc.driver" value="org.hibernate.dialect.Oracle10gDialect" />
+      <property name="javax.persistence.jdbc.url" value="org.hibernate.dialect.Oracle10gDialect" />
+      <property name="javax.persistence.jdbc.user" value="stud_mshykoriak" />
+      <property name="javax.persistence.jdbc.password" value="stud_mshykoriak" />
+      <property name="hibernate.show_sql" value="true" />
+      <property name="hibernate.hbm2ddl.auto" value="create" />
+    </properties>
+
+  </persistence-unit>
+</persistence>

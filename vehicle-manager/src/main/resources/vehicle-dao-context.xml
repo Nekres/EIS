@@ -9,15 +9,10 @@
           class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManager"/>
     </bean>
-
-    <bean id="persistenceExceptionTranslationPostProcessor" class=
-            "org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+    <bean name="vehicleDao" class="com.nrs.vehicle.dao.VehicleDao">
+    </bean>
     <bean id="entityManager"
           class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
-        <property name="persistenceUnitName" value="oracle"/>
-    </bean>
-
-    <bean name="vehicleDao" class="com.nrs.vehicle.dao.VehicleDao">
-        <property name="sessionFactory" ref="sessionFactory" />
+        <property name="persistenceUnitName" value="local_persistence"/>
     </bean>
 </beans>
