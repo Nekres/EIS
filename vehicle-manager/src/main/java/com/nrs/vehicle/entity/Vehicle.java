@@ -34,38 +34,28 @@ public abstract class Vehicle {
     @Column(name = "vehicle_id", updatable = false, nullable = false)
     protected int id;
     @Column(nullable = false)
-    protected double weight;
+    protected float weight;
     @Column(nullable = false)
-    protected double height;
+    protected float height;
     
     @Column(nullable = false)
-    protected double length;
+    protected float length;
     
     @Column(name = "max_speed",nullable = false)
-    protected double maxSpeed;
+    protected float maxSpeed;
     
     @Column(nullable = false)
-    protected double cost;
+    protected float cost;
     
     @Column(name = "produce_date")
     @Temporal(TemporalType.DATE)
     protected Date produceDate;
-    
     @ManyToOne(cascade = CascadeType.ALL)
     protected Manufacturer manufacturer;
     @OneToMany(mappedBy = "store")
     protected Set<StoreVehicleInterim> stores;
-    
     @OneToOne(cascade = CascadeType.ALL)
     protected Engine engine;
-
-    public Engine getEngine() {
-        return engine;
-    }
-
-    public void setEngine(Engine engine) {
-        this.engine = engine;
-    }
 
     public int getId() {
         return id;
@@ -75,43 +65,43 @@ public abstract class Vehicle {
         this.id = id;
     }
 
-    public double getWeight() {
+    public float getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(float weight) {
         this.weight = weight;
     }
 
-    public double getHeight() {
+    public float getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(float height) {
         this.height = height;
     }
 
-    public double getLength() {
+    public float getLength() {
         return length;
     }
 
-    public void setLength(double length) {
+    public void setLength(float length) {
         this.length = length;
     }
 
-    public double getMaxSpeed() {
+    public float getMaxSpeed() {
         return maxSpeed;
     }
 
-    public void setMaxSpeed(double maxSpeed) {
+    public void setMaxSpeed(float maxSpeed) {
         this.maxSpeed = maxSpeed;
     }
 
-    public double getCost() {
+    public float getCost() {
         return cost;
     }
 
-    public void setCost(double cost) {
+    public void setCost(float cost) {
         this.cost = cost;
     }
 
@@ -139,5 +129,14 @@ public abstract class Vehicle {
         this.stores = stores;
     }
 
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+   
+    
 
 }
