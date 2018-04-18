@@ -15,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -61,7 +62,6 @@ public class Store {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 59 * hash + this.id;
         hash = 59 * hash + Objects.hashCode(this.name);
         hash = 59 * hash + Objects.hashCode(this.address);
         hash = 59 * hash + Objects.hashCode(this.vehicles);
@@ -80,8 +80,19 @@ public class Store {
             return false;
         }
         final Store other = (Store) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.address, other.address)) {
+            return false;
+        }
+        if (!Objects.equals(this.vehicles, other.vehicles)) {
+            return false;
+        }
         return true;
     }
+
+   
     
     
     

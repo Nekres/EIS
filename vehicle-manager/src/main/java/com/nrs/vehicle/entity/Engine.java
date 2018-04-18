@@ -5,6 +5,7 @@
  */
 package com.nrs.vehicle.entity;
 
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,17 +13,20 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 /**
  *
  * @author nrs
  */
+@Table
 @Entity
 public class Engine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false, nullable = false)
-    private int id;
+    @Column(name = "id", updatable = false,nullable = false)
+    private Integer id;
     @Column(name= "model")
     private String model;
     @Column(name = "transmission_type")
@@ -51,7 +55,35 @@ public class Engine {
     public void setTransmissionType(String transmissionType) {
         this.transmissionType = transmissionType;
     }
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.model);
+        hash = 53 * hash + Objects.hashCode(this.transmissionType);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Engine other = (Engine) obj;
+        if (!Objects.equals(this.model, other.model)) {
+            return false;
+        }
+        if (!Objects.equals(this.transmissionType, other.transmissionType)) {
+            return false;
+        }
+        return true;
+    }
     
     
     

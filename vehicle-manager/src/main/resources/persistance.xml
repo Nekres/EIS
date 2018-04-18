@@ -6,11 +6,7 @@
     <validation-mode>NONE</validation-mode>
     <properties>
       <property name="hibernate.show_sql" value="true"/>
-      <property name="hibernate.hbm2ddl.auto" value="validate"/>
-      <property name="javax.persistence.jdbc.url" value=""/>
-      <property name="javax.persistence.jdbc.user" value=""/>
-      <property name="javax.persistence.jdbc.driver" value=""/>
-      <property name="javax.persistence.jdbc.password" value=""/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
     </properties>
   </persistence-unit>
 </persistence>

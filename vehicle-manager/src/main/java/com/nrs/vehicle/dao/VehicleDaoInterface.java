@@ -5,6 +5,7 @@
  */
 package com.nrs.vehicle.dao;
 
+import javax.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -12,17 +13,14 @@ import org.hibernate.Transaction;
  *
  * @author nrs
  */
+
 public interface VehicleDaoInterface<E,K> {
-    
     
     public void persist(E entity);
     public void update(E entity);
     public E findById(K id);
     public void delete(E entity);
     
-    public void beginTransaction();
-    public void commit();
-    public void rollback();
     
 
     

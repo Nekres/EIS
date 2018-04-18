@@ -6,6 +6,7 @@
 package com.nrs.vehicle.entity;
 
 import com.nrs.vehicle.dao.VehicleDao;
+import com.nrs.vehicle.dao.VehicleDaoInterface;
 import java.util.HashSet;
 import java.util.Set;
 import org.springframework.context.ApplicationContext;
@@ -16,9 +17,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author nrs
  */
 public class Main {
+    
     public static void main(String[] args) {
         ApplicationContext ctx = new ClassPathXmlApplicationContext(new String[]{"classpath:vehicle-dao-context.xml"});
-        VehicleDao dao = (VehicleDao)ctx.getBean("vehicleDao");
+        VehicleDaoInterface dao = (VehicleDaoInterface)ctx.getBean("vehicleDao");
         Vehicle v = new Motorcycle();
         v.setCost(200);
         v.setHeight(500);
@@ -34,7 +36,6 @@ public class Main {
         Engine e = new Engine();
         e.setTransmissionType("MECHANICAL");
         v.setEngine(e);
-        dao.beginTransaction();
         Store s = new Store();
         s.setAddress("some address");
         s.setName("some name");

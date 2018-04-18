@@ -8,6 +8,7 @@ package com.nrs.vehicle.dao;
 import com.nrs.vehicle.entity.Vehicle;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -17,9 +18,12 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
  *
  * @author nrs
  */
+@Transactional
 public class VehicleDao implements VehicleDaoInterface<Vehicle, Integer>{
+    
     @PersistenceContext
     private EntityManager entityManager;
+    
     @Override
     public void persist(Vehicle entity) {
         entityManager.persist(entity);
@@ -39,21 +43,6 @@ public class VehicleDao implements VehicleDaoInterface<Vehicle, Integer>{
     @Override
     public void delete(Vehicle entity) {
         entityManager.remove(entity);
-    }
-
-    @Override
-    public void beginTransaction() {
-        entityManager.getTransaction().begin();
-    }
-
-    @Override
-    public void commit() {
-        entityManager.getTransaction().commit();
-    }
-
-    @Override
-    public void rollback() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

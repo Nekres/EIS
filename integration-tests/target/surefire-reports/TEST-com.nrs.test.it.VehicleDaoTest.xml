@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="com.nrs.test.it.VehicleDaoTest" time="0.834" errors="1" skipped="0">
+<testsuite tests="2" failures="1" name="com.nrs.test.it.VehicleDaoTest" time="4.172" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/jdk1.8.0_161/jre/lib/amd64"/>
@@ -13,7 +13,6 @@
     <property name="user.country" value="RU"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
-    <property name="test" value="com.nrs.test.it.VehicleDaoTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="/home/dev3/Документы/Javac/EIS/EIS/integration-tests"/>
     <property name="java.runtime.version" value="1.8.0_161-b12"/>
@@ -25,7 +24,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Linux"/>
-    <property name="maven.ext.class.path" value="/home/dev3/netbeans-8.2/java/maven-nblib/netbeans-eventspy.jar:/home/dev3/netbeans-8.2/java/maven-nblib/netbeans-cos.jar"/>
+    <property name="maven.ext.class.path" value="/home/dev3/netbeans-8.2/java/maven-nblib/netbeans-eventspy.jar"/>
     <property name="classworlds.conf" value="/home/dev3/netbeans-8.2/java/maven/bin/m2.conf"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/usr/lib/jvm/jdk1.8.0_161/jre/lib/amd64:/usr/lib/jvm/jdk1.8.0_161/jre/lib/i386::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"/>
@@ -36,14 +35,14 @@
     <property name="user.home" value="/root"/>
     <property name="user.timezone" value="Europe/Kiev"/>
     <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
-    <property name="java.specification.version" value="1.8"/>
     <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="1.8"/>
     <property name="user.name" value="root"/>
     <property name="java.class.path" value="/home/dev3/netbeans-8.2/java/maven/boot/plexus-classworlds-2.4.jar"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/usr/lib/jvm/jdk1.8.0_161/jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=com.nrs.test.it.VehicleDaoTest -Dmaven.ext.class.path=/home/dev3/netbeans-8.2/java/maven-nblib/netbeans-eventspy.jar:/home/dev3/netbeans-8.2/java/maven-nblib/netbeans-cos.jar -Pit-execution surefire:test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=/home/dev3/netbeans-8.2/java/maven-nblib/netbeans-eventspy.jar clean install"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="ru"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -60,18 +59,31 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="com.nrs.test.it.VehicleDaoTest" name="testInsert" time="0.007">
-    <error message="Failed to load ApplicationContext" type="java.lang.IllegalStateException">java.lang.IllegalStateException: Failed to load ApplicationContext
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125)
-	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:107)
-	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
-	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
-	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:242)
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227)
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289)
+  <testcase classname="com.nrs.test.it.VehicleDaoTest" name="testInsert" time="0.383"/>
+  <testcase classname="com.nrs.test.it.VehicleDaoTest" name="testUpdate" time="0.094">
+    <failure message="expected:&lt;200.0&gt; but was:&lt;9000.0&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;200.0&gt; but was:&lt;9000.0&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at com.nrs.test.it.VehicleDaoTest.testUpdate(VehicleDaoTest.java:70)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291)
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:73)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:83)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
 	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
 	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
@@ -94,52 +106,134 @@
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name &apos;entityManager&apos; defined in URL [file:/home/dev3/%d0%94%d0%be%d0%ba%d1%83%d0%bc%d0%b5%d0%bd%d1%82%d1%8b/Javac/EIS/EIS/integration-tests/target/test-classes/test-vehicle-dao-context.xml]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: No Persistence provider for EntityManager named H2DB
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1710)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:583)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:502)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:312)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:310)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:741)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
-	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:128)
-	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
-	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:107)
-	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:243)
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99)
-	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117)
-	... 31 more
-Caused by: javax.persistence.PersistenceException: No Persistence provider for EntityManager named H2DB
-	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:61)
-	at org.springframework.orm.jpa.LocalEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalEntityManagerFactoryBean.java:96)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:388)
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1769)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1706)
-	... 46 more
-</error>
-    <system-out>log4j: reset attribute= &quot;false&quot;.
-log4j: Threshold =&quot;null&quot;.
-log4j: Level value for root is  [DEBUG].
-log4j: root level set to DEBUG
-log4j: Class name: [org.apache.log4j.ConsoleAppender]
-log4j: Parsing layout of class: &quot;org.apache.log4j.PatternLayout&quot;
-log4j: Setting property [conversionPattern] to [%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n].
-log4j: Adding appender named [console] to category [root].
-2018-04-16 17:26:31 DEBUG logging:38 - Logging Provider: org.jboss.logging.Log4jLoggerProvider
-2018-04-16 17:26:31 INFO  PersistenceXmlParser:231 - HHH000318: Could not find any META-INF/persistence.xml file in the classpath
-2018-04-16 17:26:31 DEBUG HibernatePersistenceProvider:98 - Located and parsed 0 persistence units; checking each
-2018-04-16 17:26:31 DEBUG HibernatePersistenceProvider:133 - Found no matching persistence units
+</failure>
+    <system-out>2018-04-18 18:35:42 DEBUG ProfileValueUtils:70 - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.nrs.test.it.VehicleDaoTest]
+2018-04-18 18:35:42 DEBUG ProfileValueUtils:83 - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.nrs.test.it.VehicleDaoTest]
+2018-04-18 18:35:42 DEBUG DependencyInjectionTestExecutionListener:81 - Performing dependency injection for test context [[DefaultTestContext@436e852b testClass = VehicleDaoTest, testInstance = com.nrs.test.it.VehicleDaoTest@701bc94e, testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@32d2fa64 testClass = VehicleDaoTest, locations = &apos;{classpath*:test-vehicle-dao-context.xml}&apos;, classes = &apos;{}&apos;, contextInitializerClasses = &apos;[]&apos;, activeProfiles = &apos;{}&apos;, propertySourceLocations = &apos;{}&apos;, propertySourceProperties = &apos;{}&apos;, contextCustomizers = set[[empty]], contextLoader = &apos;org.springframework.test.context.support.DelegatingSmartContextLoader&apos;, parent = [null]], attributes = map[[empty]]]].
+2018-04-18 18:35:42 DEBUG DefaultCacheAwareContextLoaderDelegate:130 - Retrieved ApplicationContext from cache with key [[MergedContextConfiguration@32d2fa64 testClass = VehicleDaoTest, locations = &apos;{classpath*:test-vehicle-dao-context.xml}&apos;, classes = &apos;{}&apos;, contextInitializerClasses = &apos;[]&apos;, activeProfiles = &apos;{}&apos;, propertySourceLocations = &apos;{}&apos;, propertySourceProperties = &apos;{}&apos;, contextCustomizers = set[[empty]], contextLoader = &apos;org.springframework.test.context.support.DelegatingSmartContextLoader&apos;, parent = [null]]]
+2018-04-18 18:35:42 DEBUG cache:294 - Spring test ApplicationContext cache statistics: [DefaultContextCache@3f29e26 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 1, missCount = 1]
+2018-04-18 18:35:42 DEBUG InjectionMetadata:89 - Processing injected element of bean &apos;com.nrs.test.it.VehicleDaoTest&apos;: AutowiredFieldElement for com.nrs.vehicle.dao.VehicleDaoInterface com.nrs.test.it.VehicleDaoTest.dao
+2018-04-18 18:35:42 DEBUG AnnotationUtils:1838 - Failed to meta-introspect annotation [interface org.springframework.beans.factory.annotation.Autowired]: java.lang.NullPointerException
+2018-04-18 18:35:42 DEBUG DefaultListableBeanFactory:255 - Returning cached instance of singleton bean &apos;vehicleDao&apos;
+2018-04-18 18:35:42 DEBUG AbstractDirtiesContextTestExecutionListener:107 - Before test method: context [DefaultTestContext@436e852b testClass = VehicleDaoTest, testInstance = com.nrs.test.it.VehicleDaoTest@701bc94e, testMethod = testUpdate@VehicleDaoTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@32d2fa64 testClass = VehicleDaoTest, locations = &apos;{classpath*:test-vehicle-dao-context.xml}&apos;, classes = &apos;{}&apos;, contextInitializerClasses = &apos;[]&apos;, activeProfiles = &apos;{}&apos;, propertySourceLocations = &apos;{}&apos;, propertySourceProperties = &apos;{}&apos;, contextCustomizers = set[[empty]], contextLoader = &apos;org.springframework.test.context.support.DelegatingSmartContextLoader&apos;, parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null].
+2018-04-18 18:35:42 DEBUG JpaTransactionManager:372 - Creating new transaction with name [com.nrs.vehicle.dao.VehicleDao.persist]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2018-04-18 18:35:42 DEBUG JpaTransactionManager:391 - Opened new EntityManager [SessionImpl(PersistenceContext[entityKeys=[],collectionKeys=[]];ActionQueue[insertions=ExecutableList{size=0} updates=ExecutableList{size=0} deletions=ExecutableList{size=0} orphanRemovals=ExecutableList{size=0} collectionCreations=ExecutableList{size=0} collectionRemovals=ExecutableList{size=0} collectionUpdates=ExecutableList{size=0} collectionQueuedOps=ExecutableList{size=0} unresolvedInsertDependencies=null])] for JPA transaction
+2018-04-18 18:35:42 DEBUG TransactionImpl:55 - begin
+2018-04-18 18:35:42 DEBUG DriverManagerDataSource:143 - Creating new JDBC DriverManager Connection to [jdbc:h2:mem:test;DB_CLOSE_DELAY=-1]
+2018-04-18 18:35:42 DEBUG JpaTransactionManager:423 - Exposing JPA transaction as JDBC transaction [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@5918c260]
+2018-04-18 18:35:42 DEBUG ActionQueue:281 - Executing identity-insert immediately
+2018-04-18 18:35:42 DEBUG SQL:92 - insert into Engine (id, model, transmission_type) values (null, ?, ?)
+Hibernate: insert into Engine (id, model, transmission_type) values (null, ?, ?)
+2018-04-18 18:35:42 DEBUG IdentifierGeneratorHelper:78 - Natively generated identity: 2
+2018-04-18 18:35:42 DEBUG ResourceRegistryStandardImpl:115 - HHH000387: ResultSet&apos;s statement was not registered
+2018-04-18 18:35:42 DEBUG ActionQueue:281 - Executing identity-insert immediately
+2018-04-18 18:35:42 DEBUG SQL:92 - insert into Manufacturer (id, country, name, site_url) values (null, ?, ?, ?)
+Hibernate: insert into Manufacturer (id, country, name, site_url) values (null, ?, ?, ?)
+2018-04-18 18:35:42 DEBUG IdentifierGeneratorHelper:78 - Natively generated identity: 2
+2018-04-18 18:35:42 DEBUG ResourceRegistryStandardImpl:115 - HHH000387: ResultSet&apos;s statement was not registered
+2018-04-18 18:35:42 DEBUG ActionQueue:281 - Executing identity-insert immediately
+2018-04-18 18:35:42 DEBUG SQL:92 - insert into Vehicle (vehicle_id, cost, engine_id, height, length, manufacturer_id, max_speed, produce_date, weight) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: insert into Vehicle (vehicle_id, cost, engine_id, height, length, manufacturer_id, max_speed, produce_date, weight) values (null, ?, ?, ?, ?, ?, ?, ?, ?)
+2018-04-18 18:35:42 DEBUG IdentifierGeneratorHelper:78 - Natively generated identity: 2
+2018-04-18 18:35:42 DEBUG ResourceRegistryStandardImpl:115 - HHH000387: ResultSet&apos;s statement was not registered
+2018-04-18 18:35:42 DEBUG SQL:92 - insert into Motorcycle (has_side_car, is_one_man_type, vehicle_id) values (?, ?, ?)
+Hibernate: insert into Motorcycle (has_side_car, is_one_man_type, vehicle_id) values (?, ?, ?)
+2018-04-18 18:35:42 DEBUG JpaTransactionManager:743 - Initiating transaction commit
+2018-04-18 18:35:42 DEBUG JpaTransactionManager:531 - Committing JPA transaction on EntityManager [SessionImpl(PersistenceContext[entityKeys=[EntityKey[com.nrs.vehicle.entity.Motorcycle#2], EntityKey[com.nrs.vehicle.entity.Engine#2], EntityKey[com.nrs.vehicle.entity.Manufacturer#2]],collectionKeys=[]];ActionQueue[insertions=ExecutableList{size=0} updates=ExecutableList{size=0} deletions=ExecutableList{size=0} orphanRemovals=ExecutableList{size=0} collectionCreations=ExecutableList{size=0} collectionRemovals=ExecutableList{size=0} collectionUpdates=ExecutableList{size=0} collectionQueuedOps=ExecutableList{size=0} unresolvedInsertDependencies=null])]
+2018-04-18 18:35:42 DEBUG TransactionImpl:66 - committing
+2018-04-18 18:35:42 DEBUG AbstractFlushingEventListener:132 - Processing flush-time cascades
+2018-04-18 18:35:42 DEBUG AbstractFlushingEventListener:174 - Dirty checking collections
+2018-04-18 18:35:42 DEBUG Collections:189 - Collection found: [com.nrs.vehicle.entity.Vehicle.stores#2], was: [&lt;unreferenced&gt;] (initialized)
+2018-04-18 18:35:42 DEBUG AbstractFlushingEventListener:106 - Flushed: 0 insertions, 0 updates, 0 deletions to 3 objects
+2018-04-18 18:35:42 DEBUG AbstractFlushingEventListener:113 - Flushed: 1 (re)creations, 0 updates, 0 removals to 1 collections
+2018-04-18 18:35:42 DEBUG EntityPrinter:102 - Listing entities:
+2018-04-18 18:35:42 DEBUG EntityPrinter:109 - com.nrs.vehicle.entity.Motorcycle{produceDate=null, cost=200.0, engine=com.nrs.vehicle.entity.Engine#2, isOneManType=false, stores=[com.nrs.vehicle.entity.StoreVehicleInterim#null], length=20000.0, weight=400.0, id=2, maxSpeed=1200.0, hasSidecar=false, height=500.0, manufacturer=com.nrs.vehicle.entity.Manufacturer#2}
+2018-04-18 18:35:42 DEBUG EntityPrinter:109 - com.nrs.vehicle.entity.Engine{model=null, transmissionType=MECHANICAL, id=2}
+2018-04-18 18:35:42 DEBUG EntityPrinter:109 - com.nrs.vehicle.entity.Manufacturer{country=China, siteUrl=http://not-exist.com, name=IDK, id=2}
+2018-04-18 18:35:42 DEBUG JpaTransactionManager:622 - Closing JPA EntityManager [SessionImpl(PersistenceContext[entityKeys=[EntityKey[com.nrs.vehicle.entity.Motorcycle#2], EntityKey[com.nrs.vehicle.entity.Engine#2], EntityKey[com.nrs.vehicle.entity.Manufacturer#2]],collectionKeys=[CollectionKey[com.nrs.vehicle.entity.Vehicle.stores#2]]];ActionQueue[insertions=ExecutableList{size=0} updates=ExecutableList{size=0} deletions=ExecutableList{size=0} orphanRemovals=ExecutableList{size=0} collectionCreations=ExecutableList{size=0} collectionRemovals=ExecutableList{size=0} collectionUpdates=ExecutableList{size=0} collectionQueuedOps=ExecutableList{size=0} unresolvedInsertDependencies=null])] after transaction
+2018-04-18 18:35:42 DEBUG EntityManagerFactoryUtils:419 - Closing JPA EntityManager
+idmf22
+2018-04-18 18:35:42 DEBUG AnnotationTransactionAttributeSource:117 - Adding transactional method &apos;com.nrs.vehicle.dao.VehicleDao.update&apos; with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2018-04-18 18:35:42 DEBUG JpaTransactionManager:372 - Creating new transaction with name [com.nrs.vehicle.dao.VehicleDao.update]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2018-04-18 18:35:42 DEBUG JpaTransactionManager:391 - Opened new EntityManager [SessionImpl(PersistenceContext[entityKeys=[],collectionKeys=[]];ActionQueue[insertions=ExecutableList{size=0} updates=ExecutableList{size=0} deletions=ExecutableList{size=0} orphanRemovals=ExecutableList{size=0} collectionCreations=ExecutableList{size=0} collectionRemovals=ExecutableList{size=0} collectionUpdates=ExecutableList{size=0} collectionQueuedOps=ExecutableList{size=0} unresolvedInsertDependencies=null])] for JPA transaction
+2018-04-18 18:35:42 DEBUG TransactionImpl:55 - begin
+2018-04-18 18:35:42 DEBUG DriverManagerDataSource:143 - Creating new JDBC DriverManager Connection to [jdbc:h2:mem:test;DB_CLOSE_DELAY=-1]
+2018-04-18 18:35:42 DEBUG JpaTransactionManager:423 - Exposing JPA transaction as JDBC transaction [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@5b275174]
+2018-04-18 18:35:42 DEBUG DefaultMergeEventListener:93 - EntityCopyObserver strategy: disallow
+2018-04-18 18:35:42 DEBUG Loader:2270 - Loading entity: [com.nrs.vehicle.entity.Motorcycle#2]
+2018-04-18 18:35:42 DEBUG SQL:92 - select motorcycle0_.vehicle_id as vehicle_1_6_2_, motorcycle0_1_.cost as cost2_6_2_, motorcycle0_1_.engine_id as engine_i8_6_2_, motorcycle0_1_.height as height3_6_2_, motorcycle0_1_.length as length4_6_2_, motorcycle0_1_.manufacturer_id as manufact9_6_2_, motorcycle0_1_.max_speed as max_spee5_6_2_, motorcycle0_1_.produce_date as produce_6_6_2_, motorcycle0_1_.weight as weight7_6_2_, motorcycle0_.has_side_car as has_side1_3_2_, motorcycle0_.is_one_man_type as is_one_m2_3_2_, engine1_.id as id1_0_0_, engine1_.model as model2_0_0_, engine1_.transmission_type as transmis3_0_0_, manufactur2_.id as id1_1_1_, manufactur2_.country as country2_1_1_, manufactur2_.name as name3_1_1_, manufactur2_.site_url as site_url4_1_1_ from Motorcycle motorcycle0_ inner join Vehicle motorcycle0_1_ on motorcycle0_.vehicle_id=motorcycle0_1_.vehicle_id left outer join Engine engine1_ on motorcycle0_1_.engine_id=engine1_.id left outer join Manufacturer manufactur2_ on motorcycle0_1_.manufacturer_id=manufactur2_.id where motorcycle0_.vehicle_id=?
+Hibernate: select motorcycle0_.vehicle_id as vehicle_1_6_2_, motorcycle0_1_.cost as cost2_6_2_, motorcycle0_1_.engine_id as engine_i8_6_2_, motorcycle0_1_.height as height3_6_2_, motorcycle0_1_.length as length4_6_2_, motorcycle0_1_.manufacturer_id as manufact9_6_2_, motorcycle0_1_.max_speed as max_spee5_6_2_, motorcycle0_1_.produce_date as produce_6_6_2_, motorcycle0_1_.weight as weight7_6_2_, motorcycle0_.has_side_car as has_side1_3_2_, motorcycle0_.is_one_man_type as is_one_m2_3_2_, engine1_.id as id1_0_0_, engine1_.model as model2_0_0_, engine1_.transmission_type as transmis3_0_0_, manufactur2_.id as id1_1_1_, manufactur2_.country as country2_1_1_, manufactur2_.name as name3_1_1_, manufactur2_.site_url as site_url4_1_1_ from Motorcycle motorcycle0_ inner join Vehicle motorcycle0_1_ on motorcycle0_.vehicle_id=motorcycle0_1_.vehicle_id left outer join Engine engine1_ on motorcycle0_1_.engine_id=engine1_.id left outer join Manufacturer manufactur2_ on motorcycle0_1_.manufacturer_id=manufactur2_.id where motorcycle0_.vehicle_id=?
+2018-04-18 18:35:42 DEBUG Loader:384 - Result set row: 0
+2018-04-18 18:35:42 DEBUG Loader:1533 - Result row: EntityKey[com.nrs.vehicle.entity.Engine#2], EntityKey[com.nrs.vehicle.entity.Manufacturer#2], EntityKey[com.nrs.vehicle.entity.Motorcycle#2]
+2018-04-18 18:35:42 DEBUG TwoPhaseLoad:144 - Resolving associations for [com.nrs.vehicle.entity.Engine#2]
+2018-04-18 18:35:42 DEBUG TwoPhaseLoad:287 - Done materializing entity [com.nrs.vehicle.entity.Engine#2]
+2018-04-18 18:35:42 DEBUG TwoPhaseLoad:144 - Resolving associations for [com.nrs.vehicle.entity.Manufacturer#2]
+2018-04-18 18:35:42 DEBUG TwoPhaseLoad:287 - Done materializing entity [com.nrs.vehicle.entity.Manufacturer#2]
+2018-04-18 18:35:42 DEBUG TwoPhaseLoad:144 - Resolving associations for [com.nrs.vehicle.entity.Motorcycle#2]
+2018-04-18 18:35:42 DEBUG TwoPhaseLoad:287 - Done materializing entity [com.nrs.vehicle.entity.Motorcycle#2]
+2018-04-18 18:35:42 DEBUG AbstractLoadPlanBasedCollectionInitializer:73 - Loading collection: [com.nrs.vehicle.entity.Vehicle.stores#2]
+2018-04-18 18:35:42 DEBUG SQL:92 - select stores0_.store_id as store_id1_5_0_, stores0_.vehicle_id as vehicle_2_5_0_, stores0_.store_id as store_id1_5_1_, stores0_.vehicle_id as vehicle_2_5_1_, vehicle1_.vehicle_id as vehicle_1_6_2_, vehicle1_.cost as cost2_6_2_, vehicle1_.engine_id as engine_i8_6_2_, vehicle1_.height as height3_6_2_, vehicle1_.length as length4_6_2_, vehicle1_.manufacturer_id as manufact9_6_2_, vehicle1_.max_speed as max_spee5_6_2_, vehicle1_.produce_date as produce_6_6_2_, vehicle1_.weight as weight7_6_2_, vehicle1_1_.has_side_car as has_side1_3_2_, vehicle1_1_.is_one_man_type as is_one_m2_3_2_, vehicle1_2_.auto_bodywork_type as auto_bod1_2_2_, vehicle1_2_.is_public as is_publi2_2_2_, case when vehicle1_1_.vehicle_id is not null then 1 when vehicle1_2_.vehicle_id is not null then 2 when vehicle1_.vehicle_id is not null then 0 end as clazz_2_, engine2_.id as id1_0_3_, engine2_.model as model2_0_3_, engine2_.transmission_type as transmis3_0_3_, manufactur3_.id as id1_1_4_, manufactur3_.country as country2_1_4_, manufactur3_.name as name3_1_4_, manufactur3_.site_url as site_url4_1_4_ from StoreVehicleInterim stores0_ left outer join Vehicle vehicle1_ on stores0_.vehicle_id=vehicle1_.vehicle_id left outer join Motorcycle vehicle1_1_ on vehicle1_.vehicle_id=vehicle1_1_.vehicle_id left outer join MotorCar vehicle1_2_ on vehicle1_.vehicle_id=vehicle1_2_.vehicle_id left outer join Engine engine2_ on vehicle1_.engine_id=engine2_.id left outer join Manufacturer manufactur3_ on vehicle1_.manufacturer_id=manufactur3_.id where stores0_.store_id=?
+Hibernate: select stores0_.store_id as store_id1_5_0_, stores0_.vehicle_id as vehicle_2_5_0_, stores0_.store_id as store_id1_5_1_, stores0_.vehicle_id as vehicle_2_5_1_, vehicle1_.vehicle_id as vehicle_1_6_2_, vehicle1_.cost as cost2_6_2_, vehicle1_.engine_id as engine_i8_6_2_, vehicle1_.height as height3_6_2_, vehicle1_.length as length4_6_2_, vehicle1_.manufacturer_id as manufact9_6_2_, vehicle1_.max_speed as max_spee5_6_2_, vehicle1_.produce_date as produce_6_6_2_, vehicle1_.weight as weight7_6_2_, vehicle1_1_.has_side_car as has_side1_3_2_, vehicle1_1_.is_one_man_type as is_one_m2_3_2_, vehicle1_2_.auto_bodywork_type as auto_bod1_2_2_, vehicle1_2_.is_public as is_publi2_2_2_, case when vehicle1_1_.vehicle_id is not null then 1 when vehicle1_2_.vehicle_id is not null then 2 when vehicle1_.vehicle_id is not null then 0 end as clazz_2_, engine2_.id as id1_0_3_, engine2_.model as model2_0_3_, engine2_.transmission_type as transmis3_0_3_, manufactur3_.id as id1_1_4_, manufactur3_.country as country2_1_4_, manufactur3_.name as name3_1_4_, manufactur3_.site_url as site_url4_1_4_ from StoreVehicleInterim stores0_ left outer join Vehicle vehicle1_ on stores0_.vehicle_id=vehicle1_.vehicle_id left outer join Motorcycle vehicle1_1_ on vehicle1_.vehicle_id=vehicle1_1_.vehicle_id left outer join MotorCar vehicle1_2_ on vehicle1_.vehicle_id=vehicle1_2_.vehicle_id left outer join Engine engine2_ on vehicle1_.engine_id=engine2_.id left outer join Manufacturer manufactur3_ on vehicle1_.manufacturer_id=manufactur3_.id where stores0_.store_id=?
+2018-04-18 18:35:42 DEBUG ResultSetProcessorImpl:161 - Preparing collection intializer : [com.nrs.vehicle.entity.Vehicle.stores#2]
+2018-04-18 18:35:42 DEBUG CollectionLoadContext:394 - 1 collections were found in result set for role: com.nrs.vehicle.entity.Vehicle.stores
+2018-04-18 18:35:42 DEBUG CollectionLoadContext:265 - Collection fully initialized: [com.nrs.vehicle.entity.Vehicle.stores#2]
+2018-04-18 18:35:42 DEBUG CollectionLoadContext:394 - 1 collections initialized for role: com.nrs.vehicle.entity.Vehicle.stores
+2018-04-18 18:35:42 DEBUG ResourceRegistryStandardImpl:84 - HHH000387: ResultSet&apos;s statement was not registered
+2018-04-18 18:35:42 DEBUG AbstractLoadPlanBasedCollectionInitializer:105 - Done loading collection
+2018-04-18 18:35:42 DEBUG Loader:2299 - Done entity load
+2018-04-18 18:35:42 DEBUG CollectionEntry:264 - Reset storedSnapshot to {com.nrs.vehicle.entity.StoreVehicleInterim@2a03d65c=com.nrs.vehicle.entity.StoreVehicleInterim@2a03d65c} for CollectionEntry[com.nrs.vehicle.entity.Vehicle.stores#2]
+2018-04-18 18:35:42 DEBUG JpaTransactionManager:743 - Initiating transaction commit
+2018-04-18 18:35:42 DEBUG JpaTransactionManager:531 - Committing JPA transaction on EntityManager [SessionImpl(PersistenceContext[entityKeys=[EntityKey[com.nrs.vehicle.entity.Motorcycle#2], EntityKey[com.nrs.vehicle.entity.Engine#2], EntityKey[com.nrs.vehicle.entity.Manufacturer#2]],collectionKeys=[CollectionKey[com.nrs.vehicle.entity.Vehicle.stores#2]]];ActionQueue[insertions=ExecutableList{size=0} updates=ExecutableList{size=0} deletions=ExecutableList{size=0} orphanRemovals=ExecutableList{size=0} collectionCreations=ExecutableList{size=0} collectionRemovals=ExecutableList{size=0} collectionUpdates=ExecutableList{size=0} collectionQueuedOps=ExecutableList{size=0} unresolvedInsertDependencies=null])]
+2018-04-18 18:35:42 DEBUG TransactionImpl:66 - committing
+2018-04-18 18:35:42 DEBUG AbstractFlushingEventListener:132 - Processing flush-time cascades
+2018-04-18 18:35:42 DEBUG AbstractFlushingEventListener:174 - Dirty checking collections
+2018-04-18 18:35:42 DEBUG Collections:189 - Collection found: [com.nrs.vehicle.entity.Vehicle.stores#2], was: [com.nrs.vehicle.entity.Vehicle.stores#2] (initialized)
+2018-04-18 18:35:42 DEBUG AbstractFlushingEventListener:106 - Flushed: 0 insertions, 1 updates, 0 deletions to 3 objects
+2018-04-18 18:35:42 DEBUG AbstractFlushingEventListener:113 - Flushed: 0 (re)creations, 0 updates, 0 removals to 1 collections
+2018-04-18 18:35:42 DEBUG EntityPrinter:102 - Listing entities:
+2018-04-18 18:35:42 DEBUG EntityPrinter:109 - com.nrs.vehicle.entity.Motorcycle{produceDate=null, cost=9000.0, engine=com.nrs.vehicle.entity.Engine#2, isOneManType=false, stores=[com.nrs.vehicle.entity.StoreVehicleInterim#null], length=20000.0, weight=400.0, id=2, maxSpeed=1200.0, hasSidecar=false, height=500.0, manufacturer=com.nrs.vehicle.entity.Manufacturer#2}
+2018-04-18 18:35:42 DEBUG EntityPrinter:109 - com.nrs.vehicle.entity.Engine{model=null, transmissionType=MECHANICAL, id=2}
+2018-04-18 18:35:42 DEBUG EntityPrinter:109 - com.nrs.vehicle.entity.Manufacturer{country=China, siteUrl=http://not-exist.com, name=IDK, id=2}
+2018-04-18 18:35:42 DEBUG SQL:92 - update Vehicle set cost=?, engine_id=?, height=?, length=?, manufacturer_id=?, max_speed=?, produce_date=?, weight=? where vehicle_id=?
+Hibernate: update Vehicle set cost=?, engine_id=?, height=?, length=?, manufacturer_id=?, max_speed=?, produce_date=?, weight=? where vehicle_id=?
+2018-04-18 18:35:42 DEBUG JpaTransactionManager:622 - Closing JPA EntityManager [SessionImpl(PersistenceContext[entityKeys=[EntityKey[com.nrs.vehicle.entity.Motorcycle#2], EntityKey[com.nrs.vehicle.entity.Engine#2], EntityKey[com.nrs.vehicle.entity.Manufacturer#2]],collectionKeys=[CollectionKey[com.nrs.vehicle.entity.Vehicle.stores#2]]];ActionQueue[insertions=ExecutableList{size=0} updates=ExecutableList{size=0} deletions=ExecutableList{size=0} orphanRemovals=ExecutableList{size=0} collectionCreations=ExecutableList{size=0} collectionRemovals=ExecutableList{size=0} collectionUpdates=ExecutableList{size=0} collectionQueuedOps=ExecutableList{size=0} unresolvedInsertDependencies=null])] after transaction
+2018-04-18 18:35:42 DEBUG EntityManagerFactoryUtils:419 - Closing JPA EntityManager
+2018-04-18 18:35:42 DEBUG JpaTransactionManager:372 - Creating new transaction with name [com.nrs.vehicle.dao.VehicleDao.findById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2018-04-18 18:35:42 DEBUG JpaTransactionManager:391 - Opened new EntityManager [SessionImpl(PersistenceContext[entityKeys=[],collectionKeys=[]];ActionQueue[insertions=ExecutableList{size=0} updates=ExecutableList{size=0} deletions=ExecutableList{size=0} orphanRemovals=ExecutableList{size=0} collectionCreations=ExecutableList{size=0} collectionRemovals=ExecutableList{size=0} collectionUpdates=ExecutableList{size=0} collectionQueuedOps=ExecutableList{size=0} unresolvedInsertDependencies=null])] for JPA transaction
+2018-04-18 18:35:42 DEBUG TransactionImpl:55 - begin
+2018-04-18 18:35:42 DEBUG DriverManagerDataSource:143 - Creating new JDBC DriverManager Connection to [jdbc:h2:mem:test;DB_CLOSE_DELAY=-1]
+2018-04-18 18:35:42 DEBUG JpaTransactionManager:423 - Exposing JPA transaction as JDBC transaction [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@4eb45fec]
+2018-04-18 18:35:42 DEBUG SQL:92 - select vehicle0_.vehicle_id as vehicle_1_6_0_, vehicle0_.cost as cost2_6_0_, vehicle0_.engine_id as engine_i8_6_0_, vehicle0_.height as height3_6_0_, vehicle0_.length as length4_6_0_, vehicle0_.manufacturer_id as manufact9_6_0_, vehicle0_.max_speed as max_spee5_6_0_, vehicle0_.produce_date as produce_6_6_0_, vehicle0_.weight as weight7_6_0_, vehicle0_1_.has_side_car as has_side1_3_0_, vehicle0_1_.is_one_man_type as is_one_m2_3_0_, vehicle0_2_.auto_bodywork_type as auto_bod1_2_0_, vehicle0_2_.is_public as is_publi2_2_0_, case when vehicle0_1_.vehicle_id is not null then 1 when vehicle0_2_.vehicle_id is not null then 2 when vehicle0_.vehicle_id is not null then 0 end as clazz_0_, engine1_.id as id1_0_1_, engine1_.model as model2_0_1_, engine1_.transmission_type as transmis3_0_1_, manufactur2_.id as id1_1_2_, manufactur2_.country as country2_1_2_, manufactur2_.name as name3_1_2_, manufactur2_.site_url as site_url4_1_2_, stores3_.store_id as store_id1_5_3_, stores3_.vehicle_id as vehicle_2_5_3_, stores3_.store_id as store_id1_5_4_, stores3_.vehicle_id as vehicle_2_5_4_, vehicle4_.vehicle_id as vehicle_1_6_5_, vehicle4_.cost as cost2_6_5_, vehicle4_.engine_id as engine_i8_6_5_, vehicle4_.height as height3_6_5_, vehicle4_.length as length4_6_5_, vehicle4_.manufacturer_id as manufact9_6_5_, vehicle4_.max_speed as max_spee5_6_5_, vehicle4_.produce_date as produce_6_6_5_, vehicle4_.weight as weight7_6_5_, vehicle4_1_.has_side_car as has_side1_3_5_, vehicle4_1_.is_one_man_type as is_one_m2_3_5_, vehicle4_2_.auto_bodywork_type as auto_bod1_2_5_, vehicle4_2_.is_public as is_publi2_2_5_, case when vehicle4_1_.vehicle_id is not null then 1 when vehicle4_2_.vehicle_id is not null then 2 when vehicle4_.vehicle_id is not null then 0 end as clazz_5_ from Vehicle vehicle0_ left outer join Motorcycle vehicle0_1_ on vehicle0_.vehicle_id=vehicle0_1_.vehicle_id left outer join MotorCar vehicle0_2_ on vehicle0_.vehicle_id=vehicle0_2_.vehicle_id left outer join Engine engine1_ on vehicle0_.engine_id=engine1_.id left outer join Manufacturer manufactur2_ on vehicle0_.manufacturer_id=manufactur2_.id left outer join StoreVehicleInterim stores3_ on vehicle0_.vehicle_id=stores3_.store_id left outer join Vehicle vehicle4_ on stores3_.vehicle_id=vehicle4_.vehicle_id left outer join Motorcycle vehicle4_1_ on vehicle4_.vehicle_id=vehicle4_1_.vehicle_id left outer join MotorCar vehicle4_2_ on vehicle4_.vehicle_id=vehicle4_2_.vehicle_id where vehicle0_.vehicle_id=?
+Hibernate: select vehicle0_.vehicle_id as vehicle_1_6_0_, vehicle0_.cost as cost2_6_0_, vehicle0_.engine_id as engine_i8_6_0_, vehicle0_.height as height3_6_0_, vehicle0_.length as length4_6_0_, vehicle0_.manufacturer_id as manufact9_6_0_, vehicle0_.max_speed as max_spee5_6_0_, vehicle0_.produce_date as produce_6_6_0_, vehicle0_.weight as weight7_6_0_, vehicle0_1_.has_side_car as has_side1_3_0_, vehicle0_1_.is_one_man_type as is_one_m2_3_0_, vehicle0_2_.auto_bodywork_type as auto_bod1_2_0_, vehicle0_2_.is_public as is_publi2_2_0_, case when vehicle0_1_.vehicle_id is not null then 1 when vehicle0_2_.vehicle_id is not null then 2 when vehicle0_.vehicle_id is not null then 0 end as clazz_0_, engine1_.id as id1_0_1_, engine1_.model as model2_0_1_, engine1_.transmission_type as transmis3_0_1_, manufactur2_.id as id1_1_2_, manufactur2_.country as country2_1_2_, manufactur2_.name as name3_1_2_, manufactur2_.site_url as site_url4_1_2_, stores3_.store_id as store_id1_5_3_, stores3_.vehicle_id as vehicle_2_5_3_, stores3_.store_id as store_id1_5_4_, stores3_.vehicle_id as vehicle_2_5_4_, vehicle4_.vehicle_id as vehicle_1_6_5_, vehicle4_.cost as cost2_6_5_, vehicle4_.engine_id as engine_i8_6_5_, vehicle4_.height as height3_6_5_, vehicle4_.length as length4_6_5_, vehicle4_.manufacturer_id as manufact9_6_5_, vehicle4_.max_speed as max_spee5_6_5_, vehicle4_.produce_date as produce_6_6_5_, vehicle4_.weight as weight7_6_5_, vehicle4_1_.has_side_car as has_side1_3_5_, vehicle4_1_.is_one_man_type as is_one_m2_3_5_, vehicle4_2_.auto_bodywork_type as auto_bod1_2_5_, vehicle4_2_.is_public as is_publi2_2_5_, case when vehicle4_1_.vehicle_id is not null then 1 when vehicle4_2_.vehicle_id is not null then 2 when vehicle4_.vehicle_id is not null then 0 end as clazz_5_ from Vehicle vehicle0_ left outer join Motorcycle vehicle0_1_ on vehicle0_.vehicle_id=vehicle0_1_.vehicle_id left outer join MotorCar vehicle0_2_ on vehicle0_.vehicle_id=vehicle0_2_.vehicle_id left outer join Engine engine1_ on vehicle0_.engine_id=engine1_.id left outer join Manufacturer manufactur2_ on vehicle0_.manufacturer_id=manufactur2_.id left outer join StoreVehicleInterim stores3_ on vehicle0_.vehicle_id=stores3_.store_id left outer join Vehicle vehicle4_ on stores3_.vehicle_id=vehicle4_.vehicle_id left outer join Motorcycle vehicle4_1_ on vehicle4_.vehicle_id=vehicle4_1_.vehicle_id left outer join MotorCar vehicle4_2_ on vehicle4_.vehicle_id=vehicle4_2_.vehicle_id where vehicle0_.vehicle_id=?
+2018-04-18 18:35:42 DEBUG ResultSetProcessorImpl:120 - Starting ResultSet row #0
+2018-04-18 18:35:42 DEBUG EntityReferenceInitializerImpl:126 - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+2018-04-18 18:35:42 DEBUG CollectionReferenceInitializerImpl:93 - Result set contains (possibly empty) collection: [com.nrs.vehicle.entity.Vehicle.stores#1]
+2018-04-18 18:35:42 DEBUG TwoPhaseLoad:144 - Resolving associations for [com.nrs.vehicle.entity.Motorcycle#1]
+2018-04-18 18:35:42 DEBUG TwoPhaseLoad:287 - Done materializing entity [com.nrs.vehicle.entity.Motorcycle#1]
+2018-04-18 18:35:42 DEBUG TwoPhaseLoad:144 - Resolving associations for [com.nrs.vehicle.entity.Engine#1]
+2018-04-18 18:35:42 DEBUG TwoPhaseLoad:287 - Done materializing entity [com.nrs.vehicle.entity.Engine#1]
+2018-04-18 18:35:42 DEBUG TwoPhaseLoad:144 - Resolving associations for [com.nrs.vehicle.entity.Manufacturer#1]
+2018-04-18 18:35:42 DEBUG TwoPhaseLoad:287 - Done materializing entity [com.nrs.vehicle.entity.Manufacturer#1]
+2018-04-18 18:35:42 DEBUG CollectionLoadContext:394 - 1 collections were found in result set for role: com.nrs.vehicle.entity.Vehicle.stores
+2018-04-18 18:35:42 DEBUG CollectionLoadContext:265 - Collection fully initialized: [com.nrs.vehicle.entity.Vehicle.stores#1]
+2018-04-18 18:35:42 DEBUG CollectionLoadContext:394 - 1 collections initialized for role: com.nrs.vehicle.entity.Vehicle.stores
+2018-04-18 18:35:42 DEBUG ResourceRegistryStandardImpl:84 - HHH000387: ResultSet&apos;s statement was not registered
+2018-04-18 18:35:42 DEBUG AbstractLoadPlanBasedEntityLoader:189 - Done entity load : com.nrs.vehicle.entity.Vehicle#1
+2018-04-18 18:35:42 DEBUG JpaTransactionManager:743 - Initiating transaction commit
+2018-04-18 18:35:42 DEBUG JpaTransactionManager:531 - Committing JPA transaction on EntityManager [SessionImpl(PersistenceContext[entityKeys=[EntityKey[com.nrs.vehicle.entity.Engine#1], EntityKey[com.nrs.vehicle.entity.Vehicle#1], EntityKey[com.nrs.vehicle.entity.Manufacturer#1]],collectionKeys=[CollectionKey[com.nrs.vehicle.entity.Vehicle.stores#1]]];ActionQueue[insertions=ExecutableList{size=0} updates=ExecutableList{size=0} deletions=ExecutableList{size=0} orphanRemovals=ExecutableList{size=0} collectionCreations=ExecutableList{size=0} collectionRemovals=ExecutableList{size=0} collectionUpdates=ExecutableList{size=0} collectionQueuedOps=ExecutableList{size=0} unresolvedInsertDependencies=null])]
+2018-04-18 18:35:42 DEBUG TransactionImpl:66 - committing
+2018-04-18 18:35:42 DEBUG AbstractFlushingEventListener:132 - Processing flush-time cascades
+2018-04-18 18:35:42 DEBUG AbstractFlushingEventListener:174 - Dirty checking collections
+2018-04-18 18:35:42 DEBUG Collections:189 - Collection found: [com.nrs.vehicle.entity.Vehicle.stores#1], was: [com.nrs.vehicle.entity.Vehicle.stores#1] (initialized)
+2018-04-18 18:35:42 DEBUG AbstractFlushingEventListener:106 - Flushed: 0 insertions, 0 updates, 0 deletions to 3 objects
+2018-04-18 18:35:42 DEBUG AbstractFlushingEventListener:113 - Flushed: 0 (re)creations, 0 updates, 0 removals to 1 collections
+2018-04-18 18:35:42 DEBUG EntityPrinter:102 - Listing entities:
+2018-04-18 18:35:42 DEBUG EntityPrinter:109 - com.nrs.vehicle.entity.Engine{model=null, transmissionType=MECHANICAL, id=1}
+2018-04-18 18:35:42 DEBUG EntityPrinter:109 - com.nrs.vehicle.entity.Vehicle{produceDate=null, cost=200.0, engine=com.nrs.vehicle.entity.Engine#1, stores=[], length=20000.0, weight=400.0, id=1, maxSpeed=1200.0, height=500.0, manufacturer=com.nrs.vehicle.entity.Manufacturer#1}
+2018-04-18 18:35:42 DEBUG EntityPrinter:109 - com.nrs.vehicle.entity.Manufacturer{country=China, siteUrl=http://not-exist.com, name=IDK, id=1}
+2018-04-18 18:35:42 DEBUG JpaTransactionManager:622 - Closing JPA EntityManager [SessionImpl(PersistenceContext[entityKeys=[EntityKey[com.nrs.vehicle.entity.Engine#1], EntityKey[com.nrs.vehicle.entity.Vehicle#1], EntityKey[com.nrs.vehicle.entity.Manufacturer#1]],collectionKeys=[CollectionKey[com.nrs.vehicle.entity.Vehicle.stores#1]]];ActionQueue[insertions=ExecutableList{size=0} updates=ExecutableList{size=0} deletions=ExecutableList{size=0} orphanRemovals=ExecutableList{size=0} collectionCreations=ExecutableList{size=0} collectionRemovals=ExecutableList{size=0} collectionUpdates=ExecutableList{size=0} collectionQueuedOps=ExecutableList{size=0} unresolvedInsertDependencies=null])] after transaction
+2018-04-18 18:35:42 DEBUG EntityManagerFactoryUtils:419 - Closing JPA EntityManager
+2018-04-18 18:35:42 DEBUG AbstractDirtiesContextTestExecutionListener:107 - After test method: context [DefaultTestContext@436e852b testClass = VehicleDaoTest, testInstance = com.nrs.test.it.VehicleDaoTest@701bc94e, testMethod = testUpdate@VehicleDaoTest, testException = java.lang.AssertionError: expected:&lt;200.0&gt; but was:&lt;9000.0&gt;, mergedContextConfiguration = [MergedContextConfiguration@32d2fa64 testClass = VehicleDaoTest, locations = &apos;{classpath*:test-vehicle-dao-context.xml}&apos;, classes = &apos;{}&apos;, contextInitializerClasses = &apos;[]&apos;, activeProfiles = &apos;{}&apos;, propertySourceLocations = &apos;{}&apos;, propertySourceProperties = &apos;{}&apos;, contextCustomizers = set[[empty]], contextLoader = &apos;org.springframework.test.context.support.DelegatingSmartContextLoader&apos;, parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null].
 </system-out>
-    <system-err>SLF4J: No SLF4J providers were found.
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See http://www.slf4j.org/codes.html#noProviders for further details.
-SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions prior to 1.8.
-SLF4J: Ignoring binding found at [jar:file:/root/.m2/repository/org/slf4j/slf4j-log4j12/1.7.25/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#ignoredBindings for an explanation.
-</system-err>
   </testcase>
 </testsuite>

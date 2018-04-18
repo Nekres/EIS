@@ -6,10 +6,12 @@
 package com.nrs.vehicle.entity;
 
 import java.util.Date;
+import java.util.Objects;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,6 +20,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -52,7 +55,7 @@ public abstract class Vehicle {
     protected Date produceDate;
     @ManyToOne(cascade = CascadeType.ALL)
     protected Manufacturer manufacturer;
-    @OneToMany(mappedBy = "store")
+    @OneToMany(mappedBy = "store",fetch = FetchType.EAGER)
     protected Set<StoreVehicleInterim> stores;
     @OneToOne(cascade = CascadeType.ALL)
     protected Engine engine;
@@ -136,7 +139,64 @@ public abstract class Vehicle {
     public void setEngine(Engine engine) {
         this.engine = engine;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 73 * hash + Float.floatToIntBits(this.weight);
+        hash = 73 * hash + Float.floatToIntBits(this.height);
+        hash = 73 * hash + Float.floatToIntBits(this.length);
+        hash = 73 * hash + Float.floatToIntBits(this.maxSpeed);
+        hash = 73 * hash + Float.floatToIntBits(this.cost);
+        hash = 73 * hash + Objects.hashCode(this.produceDate);
+        hash = 73 * hash + Objects.hashCode(this.manufacturer);
+        hash = 73 * hash + Objects.hashCode(this.stores);
+        hash = 73 * hash + Objects.hashCode(this.engine);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Vehicle other = (Vehicle) obj;
+        if (Float.floatToIntBits(this.weight) != Float.floatToIntBits(other.weight)) {
+            return false;
+        }
+        if (Float.floatToIntBits(this.height) != Float.floatToIntBits(other.height)) {
+            return false;
+        }
+        if (Float.floatToIntBits(this.length) != Float.floatToIntBits(other.length)) {
+            return false;
+        }
+        if (Float.floatToIntBits(this.maxSpeed) != Float.floatToIntBits(other.maxSpeed)) {
+            return false;
+        }
+        if (Float.floatToIntBits(this.cost) != Float.floatToIntBits(other.cost)) {
+            return false;
+        }
+        if (!Objects.equals(this.produceDate, other.produceDate)) {
+            return false;
+        }
+        if (!Objects.equals(this.manufacturer, other.manufacturer)) {
+            return false;
+        }
+        if (!Objects.equals(this.stores, other.stores)) {
+            return false;
+        }
+        if (!Objects.equals(this.engine, other.engine)) {
+            return false;
+        }
+        return true;
+    }
    
     
-
+    
 }

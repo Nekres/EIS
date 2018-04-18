@@ -8,11 +8,13 @@ package com.nrs.vehicle.entity;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  *
  * @author nrs
  */
+@Table
 @Entity
 public class Motorcycle extends Vehicle{
     
