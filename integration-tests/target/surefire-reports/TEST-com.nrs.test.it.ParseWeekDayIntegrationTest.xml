@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="com.nrs.test.it.ParseWeekDayIntegrationTest" time="0.141" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="com.nrs.test.it.ParseWeekDayIntegrationTest" time="0.102" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/jdk1.8.0_161/jre/lib/amd64"/>
@@ -60,6 +60,6 @@
     <property name="sun.cpu.isalist" value=""/>
   </properties>
   <testcase classname="com.nrs.test.it.ParseWeekDayIntegrationTest" name="testNull" time="0.002"/>
-  <testcase classname="com.nrs.test.it.ParseWeekDayIntegrationTest" name="testBadDate" time="0.002"/>
-  <testcase classname="com.nrs.test.it.ParseWeekDayIntegrationTest" name="test" time="0.006"/>
+  <testcase classname="com.nrs.test.it.ParseWeekDayIntegrationTest" name="testBadDate" time="0.001"/>
+  <testcase classname="com.nrs.test.it.ParseWeekDayIntegrationTest" name="test" time="0.001"/>
 </testsuite>

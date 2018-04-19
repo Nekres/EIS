@@ -5,6 +5,8 @@
  */
 package com.nrs.vehicle.dao;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -20,6 +22,7 @@ public interface VehicleDaoInterface<E,K> {
     public void update(E entity);
     public E findById(K id);
     public void delete(E entity);
+    public List<E> getAll();
     
     
 

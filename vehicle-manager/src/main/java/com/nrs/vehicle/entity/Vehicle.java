@@ -18,6 +18,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -28,10 +30,13 @@ import javax.persistence.TemporalType;
  *
  * @author nrs
  */
+@NamedQueries({
+@NamedQuery(name="EmailDomainTrust.getEmailDomains",
+    query="SELECT e FROM Vehicle e")          
+})
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Vehicle {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "vehicle_id", updatable = false, nullable = false)

@@ -6,6 +6,8 @@
 package com.nrs.vehicle.dao;
 
 import com.nrs.vehicle.entity.Vehicle;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -43,6 +45,11 @@ public class VehicleDao implements VehicleDaoInterface<Vehicle, Integer>{
     @Override
     public void delete(Vehicle entity) {
         entityManager.remove(entity);
+    }
+
+    @Override
+    public List<Vehicle> getAll() {
+        return entityManager.createQuery("SELECT v FROM Vehicle v").getResultList();
     }
 
     
