@@ -8,17 +8,17 @@ package com.nrs.web;
 import com.nrs.vehicle.dao.VehicleDaoInterface;
 import com.nrs.vehicle.entity.Vehicle;
 import java.util.List;
+import org.jboss.logging.Logger;
 
 /**
  *
  * @author root
  */
 public class VehicleBOImpl implements VehicleBO{
-    
-    VehicleDaoInterface<Vehicle, Integer> vehicleDao;
-    
+    private VehicleDaoInterface<Vehicle, Integer> vehicleDao;
     @Override
     public List<Vehicle> getAllVehicles() {
+        Logger.getLogger("vehicle").info("INVOKED");
         return vehicleDao.getAll();
     }
     @Override
@@ -29,5 +29,19 @@ public class VehicleBOImpl implements VehicleBO{
     public void update(Vehicle v) {
         vehicleDao.update(v);
     }
+
+    public VehicleDaoInterface<Vehicle, Integer> getVehicleDao() {
+        return vehicleDao;
+    }
+
+    public void setVehicleDao(VehicleDaoInterface<Vehicle, Integer> vehicleDao) {
+        this.vehicleDao = vehicleDao;
+    }
+    
+    public List<Vehicle> executeFilterQuery(final String sql){
+        return vehicleDao.executeQuery(sql);
+    }
+    
+    
     
 }

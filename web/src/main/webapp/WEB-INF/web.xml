@@ -7,16 +7,6 @@
 	id="WebApp_ID" version="2.5">
 
   <display-name>PrimeFaces Web Application</display-name>
-  <listener>
-	<listener-class>
-		org.springframework.web.context.ContextLoaderListener
-	</listener-class>
-  </listener>
-  <listener>
-	<listener-class>
-		org.springframework.web.context.request.RequestContextListener
-	</listener-class>
-  </listener>
 
   	<!-- Change to "Production" when you are ready to deploy -->
 	<context-param>
@@ -24,9 +14,9 @@
 		<param-value>Development</param-value>
 	</context-param>
         <context-param>
-            <param-name>javax.faces.CONFIG_FILES</param-name>
-            <param-value>/WEB-INF/web-context.xml</param-value>
-        </context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>WEB-INF/applicationСontext.xml</param-value>
+</context-param>
 	<!-- Welcome page -->
 	<welcome-file-list>
 		<welcome-file>faces/index.xhtml</welcome-file>
@@ -38,7 +28,17 @@
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	
+	<listener>
+      <listener-class>
+         org.springframework.web.context.ContextLoaderListener
+      </listener-class>
+   </listener>
+   
+   <listener>
+      <listener-class>
+         org.springframework.web.context.request.RequestContextListener
+      </listener-class>
+   </listener>
 	<!-- Map these files with JSF -->
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>

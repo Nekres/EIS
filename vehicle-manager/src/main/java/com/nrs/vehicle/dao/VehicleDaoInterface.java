@@ -23,7 +23,7 @@ public interface VehicleDaoInterface<E,K> {
     public E findById(K id);
     public void delete(E entity);
     public List<E> getAll();
-    
+    public List<E> executeQuery(final String query);
     
 
     

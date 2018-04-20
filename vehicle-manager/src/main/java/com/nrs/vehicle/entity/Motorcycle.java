@@ -5,6 +5,7 @@
  */
 package com.nrs.vehicle.entity;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -16,7 +17,7 @@ import javax.persistence.Table;
  */
 @Table
 @Entity
-public class Motorcycle extends Vehicle{
+public class Motorcycle extends Vehicle implements Serializable{
     
     @Column(nullable = false,name = "is_one_man_type")
     private boolean isOneManType;

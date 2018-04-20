@@ -26,7 +26,7 @@ public class Main {
         v.setWeight(400);
         Manufacturer m = new Manufacturer();
         m.setCountry("China");
-        m.setName("IDK");
+        m.setName("Manufacturer Example2");
         m.setSiteUrl("http://not-exist.com");
         v.setManufacturer(m);
         

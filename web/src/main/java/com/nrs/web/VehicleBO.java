@@ -13,9 +13,9 @@ import java.util.List;
  * @author root
  */
 public interface VehicleBO {
-    
     public List<Vehicle> getAllVehicles();
     public Vehicle findById(Integer id);
     public void update(Vehicle v);
+    public List<Vehicle> executeFilterQuery(final String sql);
     
 }

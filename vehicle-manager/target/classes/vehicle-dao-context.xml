@@ -28,6 +28,8 @@
    </bean>
     <bean name="vehicleDao" class="com.nrs.vehicle.dao.VehicleDao">
     </bean>
+    <bean name="manufacturerDao" class="com.nrs.vehicle.dao.ManufacturerDao">
+    </bean>
     <bean id="entityManagerFactoryBean" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
       <property name="dataSource" ref="dataSource" />
       <!-- This makes /META-INF/persistence.xml is no longer necessary -->

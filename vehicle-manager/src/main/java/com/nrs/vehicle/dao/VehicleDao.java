@@ -11,10 +11,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 /**
  *
@@ -50,6 +46,11 @@ public class VehicleDao implements VehicleDaoInterface<Vehicle, Integer>{
     @Override
     public List<Vehicle> getAll() {
         return entityManager.createQuery("SELECT v FROM Vehicle v").getResultList();
+    }
+
+    @Override
+    public List<Vehicle> executeQuery(String query) {
+        return entityManager.createQuery(query).getResultList();
     }
 
     

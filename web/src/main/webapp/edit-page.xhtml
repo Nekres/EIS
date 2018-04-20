@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <script name="jquery/jquery.js" library="primefaces"></script>
+</h:head>
+<h:body>
+     <h1 align="center">List of vehicles</h1>
+    <h:form style="width:400px">
+        <p:growl id="growl" showDetail="true" />
+    <p:growl id="message" showDetail="true" showSummary="true"></p:growl>
+    <p:outputLabel value="Filter vehicles:"></p:outputLabel>
+    
+    <table style="width:100%">
+  <tr>
+    
+  </tr>
+  <tr>
+    <td>Select cost:</td>
+    <td><h:panelGrid columns="1" style="margin-bottom: 10px">
+        <p:inputText id="decimal" value="#{vehicle.selectedCost}" />
+        <p:slider for="decimal" minValue="0.2" maxValue="20000.0" step="5" />
+    </h:panelGrid></td>
+  </tr>
+  <tr>
+    <td>Select vehicle type:</td>
+    <td><p:selectOneMenu value="#{vehicle.selectedVehicleType}">
+		<f:selectItems value="#{vehicle.filters}"></f:selectItems>
+	</p:selectOneMenu></td>
+  </tr>
+  <tr>
+    <td>Select manufacturer:</td>
+    <td><p:selectOneMenu value="#{vehicle.selectedManufacturer}">
+            <f:selectItems value="#{vehicle.allManufacturers}"></f:selectItems>
+	</p:selectOneMenu></td>
+  </tr>
+</table>
+    <p:commandButton value="Apply filters" action="#{vehicle.register}"  update="table-wrapper"></p:commandButton>
+    </h:form>
+     <h:panelGroup id="table-wrapper">
+     <p:dataTable value="#{vehicle.all}" var="v">
+        <p:column headerText="Vehicle">
+            <h:outputText value="#{v.cost}"/>
+        </p:column>
+    </p:dataTable>
+         </h:panelGroup>
+</h:body>
+</html>

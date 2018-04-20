@@ -5,6 +5,7 @@
  */
 package com.nrs.vehicle.entity;
 
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.Set;
 import javax.persistence.Column;
@@ -23,7 +24,7 @@ import javax.persistence.Table;
  * @author nrs
  */
 @Entity
-public class Store {
+public class Store implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "store_id", updatable = false, nullable = false)

@@ -5,6 +5,7 @@
  */
 package com.nrs.vehicle.entity;
 
+import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +19,7 @@ import javax.persistence.SequenceGenerator;
  * @author nrs
  */
 @Entity
-public class Manufacturer {
+public class Manufacturer implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false, nullable = false)
@@ -94,6 +95,11 @@ public class Manufacturer {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
     
     

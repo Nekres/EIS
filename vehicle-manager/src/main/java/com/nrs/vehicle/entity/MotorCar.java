@@ -5,6 +5,7 @@
  */
 package com.nrs.vehicle.entity;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorValue;
@@ -15,7 +16,7 @@ import javax.persistence.Entity;
  * @author nrs
  */
 @Entity
-public class MotorCar extends Vehicle{
+public class MotorCar extends Vehicle implements Serializable{
     
     @Column(nullable = false, name = "is_public")
     private boolean isPublic;
