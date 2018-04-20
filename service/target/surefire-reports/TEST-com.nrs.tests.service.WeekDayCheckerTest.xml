@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="com.nrs.tests.service.WeekDayCheckerTest" time="1.365" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="com.nrs.tests.service.WeekDayCheckerTest" time="0.386" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/jdk1.8.0_161/jre/lib/amd64"/>
@@ -59,7 +59,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="com.nrs.tests.service.WeekDayCheckerTest" name="testParseWeek" time="0.518"/>
-  <testcase classname="com.nrs.tests.service.WeekDayCheckerTest" name="testParseWeekOnParseException" time="0.014"/>
-  <testcase classname="com.nrs.tests.service.WeekDayCheckerTest" name="testParseWeekOnNull" time="0.002"/>
+  <testcase classname="com.nrs.tests.service.WeekDayCheckerTest" name="testParseWeek" time="0.123"/>
+  <testcase classname="com.nrs.tests.service.WeekDayCheckerTest" name="testParseWeekOnParseException" time="0.006"/>
+  <testcase classname="com.nrs.tests.service.WeekDayCheckerTest" name="testParseWeekOnNull" time="0.001"/>
 </testsuite>

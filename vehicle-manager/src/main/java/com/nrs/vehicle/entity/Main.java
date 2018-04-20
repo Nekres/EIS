@@ -19,7 +19,7 @@ public class Main {
         ApplicationContext ctx = new ClassPathXmlApplicationContext(new String[]{"classpath:vehicle-dao-context.xml"});
         VehicleDaoInterface dao = (VehicleDaoInterface)ctx.getBean("vehicleDao");
         Vehicle v = new Motorcycle();
-        v.setCost(200);
+        v.setCost(20000000);
         v.setHeight(500);
         v.setLength(20000);
         v.setMaxSpeed(1200);
