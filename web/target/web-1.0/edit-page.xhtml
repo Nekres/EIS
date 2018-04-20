@@ -44,7 +44,7 @@
     <p:commandButton value="Apply filters" action="#{vehicle.register}"  update="table-wrapper"></p:commandButton>
     </h:form>
      <h:panelGroup id="table-wrapper">
-     <p:dataTable value="#{vehicle.all}" var="v">
+         <p:dataTable value="#{vehicle.filteredVehicles}" var="v">
         <p:column headerText="Vehicle">
             <h:outputText value="#{v.cost}"/>
         </p:column>

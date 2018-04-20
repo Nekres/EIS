@@ -82,6 +82,22 @@ public class VehicleFilterManager implements Serializable {
         return "";
     }
 
+    public HashMap<String, Manufacturer> getManufacturers() {
+        return manufacturers;
+    }
+
+    public void setManufacturers(HashMap<String, Manufacturer> manufacturers) {
+        this.manufacturers = manufacturers;
+    }
+
+    public List<Vehicle> getFilteredVehicles() {
+        return filteredVehicles;
+    }
+
+    public void setFilteredVehicles(List<Vehicle> filteredVehicles) {
+        this.filteredVehicles = filteredVehicles;
+    }
+    
     public String getSelectedManufacturer() {
         return selectedManufacturer;
     }
